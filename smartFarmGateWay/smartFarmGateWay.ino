@@ -4,7 +4,7 @@
 
 #include <ESP8266WiFi.h>
 #include <Wire.h>
-#include <ACROBOTIC_SSD1306.h>
+//#include <ACROBOTIC_SSD1306.h>
 
 ////////////////////// CONFIG ///////////////////////
                                                    
@@ -41,14 +41,14 @@ void setup()
 
   ///////////////////////////////// OLED
 
-  Wire.begin();
-  oled.init();                      // Initialze SSD1306 OLED display
-  oled.clearDisplay();
-  oled.setTextXY(0, 0);             // Set cursor position, start of line 0
-  oled.putString("Connecting to ");
-  oled.setTextXY(1, 0);
-  oled.putString(ssid);
-  oled.setTextXY(2, 0);
+//  Wire.begin();
+//  oled.init();                      // Initialze SSD1306 OLED display
+//  oled.clearDisplay();
+//  oled.setTextXY(0, 0);             // Set cursor position, start of line 0
+//  oled.putString("Connecting to ");
+//  oled.setTextXY(1, 0);
+//  oled.putString(ssid);
+//  oled.setTextXY(2, 0);
   Serial.println();
   Serial.print("Connecting to :");
   Serial.println(ssid);
@@ -57,7 +57,7 @@ void setup()
   while (WiFi.status() != WL_CONNECTED) {
     delay(200);
     Serial.print(".");
-    oled.putString(".");
+//    oled.putString(".");
   }
   
   WiFi.config(ip_addr,gateway,subnet);
@@ -69,15 +69,15 @@ void setup()
   WiFi.softAP(APNAME, APPASS);
   server.begin();
 
-  oled.clearDisplay();
-  oled.setTextXY(0, 0);             // Set cursor position, start of line 0
-  oled.putString("IP Address is :");
-  oled.setTextXY(1, 0);             // Set cursor position, start of line 1
-  String tmp = (String)WiFi.localIP();
-  oled.putString(tmp);
-  oled.setTextXY(2, 0);             // Set cursor position, start of line 2
-  oled.putString("RSSI is :");
-  oled.setFont(font8x8); 
+//  oled.clearDisplay();
+//  oled.setTextXY(0, 0);             // Set cursor position, start of line 0
+//  oled.putString("IP Address is :");
+//  oled.setTextXY(1, 0);             // Set cursor position, start of line 1
+//  String tmp = (String)WiFi.localIP();
+//  oled.putString(tmp);
+//  oled.setTextXY(2, 0);             // Set cursor position, start of line 2
+//  oled.putString("RSSI is :");
+//  oled.setFont(font8x8); 
   //////////////////////////////////
 
 
@@ -113,22 +113,22 @@ void loop() {
  WiFiClient client = server.available();
  if (!client) 
  return;
- Serial.println("New client");
+ //Serial.println("New client");
  if(client.connected()){
  if(client.available())
  Serial.println(client.readStringUntil('\n'));
 }
  client.stop();
- Serial.println("Client disconnect"); 
+ //Serial.println("Client disconnect"); 
 }
 
-void checkRSSI() {
-  oled.setTextXY(3, 0);
-  String tmp = (String)WiFi.RSSI();
-  //Serial.println(tmp);
-  oled.putString(tmp);
-  //delay(500);
-}
+//void checkRSSI() {
+//  oled.setTextXY(3, 0);
+//  String tmp = (String)WiFi.RSSI();
+//  //Serial.println(tmp);
+//  oled.putString(tmp);
+//  //delay(500);
+//}
 
 byte sendEmail() {
   WiFiClientSecure client;

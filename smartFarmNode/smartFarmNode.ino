@@ -52,14 +52,18 @@ void setup()
 
   Serial.print("gatewayIP is : ");
   Serial.println(WiFi.gatewayIP());
+
+  while(!client.connect(server_ip, port));
+  //if(client.connect(server_ip, port)){
+    client.println("You are cute."); 
+    Serial.println("Send");
+    //client.stop();
+  //}
+  
+  ESP.deepSleep(1000000*5);
 }
 
 void loop()
 {
-  if(client.connect(server_ip, port)){
-    client.println("You are cute."); 
-    Serial.println("Send");
-    // Client.stop();
-    delay(1000);
-  }
+
 }
