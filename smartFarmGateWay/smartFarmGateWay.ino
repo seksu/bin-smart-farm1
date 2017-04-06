@@ -14,9 +14,13 @@ const char* APPASS                = "AdminFarm00";
 const char* ssid                  = "OHMAMP";
 const char* password              = "a029453745";
 
+const int farmId                  = 1;
+const int zoneId                  = 1;
+
 IPAddress ip_addr                 = {192,168,1,200};
 IPAddress gateway                 = {192,168,1,1};
 IPAddress subnet                  = {255,255,255,0};
+
                                                   
 ////////////////////////////////////////////////////
 

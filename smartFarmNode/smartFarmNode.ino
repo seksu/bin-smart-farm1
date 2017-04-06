@@ -1,10 +1,19 @@
 #include <ESP8266WiFi.h>
+
+
+//////////////////// config ////////////////////////
+
 const char ssid[]     = "Farm00";
 const char password[] = "AdminFarm00";
-byte mac[]            = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-char server_ip[]      = "192.168.1.200"; // connect with PC
-const uint16_t port   = 8888;
 
+char server_ip[]      = "192.168.1.200";
+const uint16_t port   = 8888;  
+
+const uint16_t nodeId = 1;
+
+///////////////////////////////////////////////////
+
+byte mac[]            = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 WiFiClient client;
 
 void setup()
